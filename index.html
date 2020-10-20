@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <div class="content" style="width: 400px;margin: auto; border:1px solid black; background-color: bisque;">
+        <div id="box" >
+            <h1 style="text-align: center;">Timer</h1>
+            <h1 style="text-align: center; font-size: 320x;">10</h1>
+        </div>
+        <button id="start" style="width: 49%; background-color: aqua;" onclick="timer(1000)">Start</button>
+        <button id="stop" style="width: 49%; background-color: aqua;">Stop</button>
+    </div>
+    <script>
+        var h1 = document.getElementsByTagName('h1')[0],
+    start = document.getElementById('start'),
+    stop = document.getElementById('stop'),
+    
+    time = 10;
+
+function add() {
+    if(time===0){
+        h1.innerHTML = "Done";
+    }
+    else{h1.innerHTML = time;
+    time--;
+    
+    timer();}
+}
+function timer() {
+    t = setTimeout(add, 1000);
+}
+//timer();
+
+
+start.onclick = timer;
+
+/* Stop button */
+stop.onclick = function() {
+    clearTimeout(t);
+}
+
+    </script>
+</html>
